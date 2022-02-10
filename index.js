@@ -12,7 +12,7 @@ if(process.env.NODE_ENV !==  "production"){
   const flash = require("connect-flash");
   const xl = require('excel4node');
   const cron = require("node-cron");
-  const cambioFacturacionDB = require('./src/models/cambioFacturacion');
+  const cambioFacturacionDB = require('./backend/models/cambioFacturacion');
 
 
   
@@ -20,15 +20,15 @@ if(process.env.NODE_ENV !==  "production"){
   
   //Inicializacion
   const app = express();
-  require("./src/database");
-  require("./src/config/passport")
+  require("./backend/database");
+  require("./backend/config/passport")
   
   //Configuraciones
 
 
   
   app.set("port", process.env.PORT || 5050);
-  app.set("views", path.join(__dirname, "views"));
+  app.set("views", path.join(__dirname, "frontend", "views"));
   app.engine(
     ".hbs",
     exphbs({
@@ -106,13 +106,13 @@ if(process.env.NODE_ENV !==  "production"){
     next()
   })
   //Rutas
-  app.use(require("./src/routes/administracion"));
-  app.use(require("./src/routes/seller"));
-  app.use(require("./src/routes/client"));
+  app.use(require("./backend/routes/administracion"));
+  app.use(require("./backend/routes/seller"));
+  app.use(require("./backend/routes/client"));
   
   //Archivos estaticos
   
-  app.use(express.static(path.join(__dirname, "public")));
+  app.use(express.static(path.join(__dirname, "frontend","public")));
   
   //Iniciar server
   
