@@ -109,7 +109,6 @@ if(process.env.NODE_ENV !==  "production"){
   app.use(require("./backend/routes/administracion"));
   app.use(require("./backend/routes/seller"));
   app.use(require("./backend/routes/client"));
-  
   //Archivos estaticos
   
   app.use(express.static(path.join(__dirname, "frontend","public")));
