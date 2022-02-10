@@ -105,7 +105,6 @@ if(process.env.NODE_ENV !==  "production"){
     res.locals.success = req.flash('success');
     next()
   })
-  
   //Rutas
   app.use(require("./src/routes/administracion"));
   app.use(require("./src/routes/seller"));
