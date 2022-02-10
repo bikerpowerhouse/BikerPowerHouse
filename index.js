@@ -12,7 +12,7 @@ if(process.env.NODE_ENV !==  "production"){
   const flash = require("connect-flash");
   const xl = require('excel4node');
   const cron = require("node-cron");
-  const cambioFacturacionDB = require('./models/cambioFacturacion');
+  const cambioFacturacionDB = require('./src/models/cambioFacturacion');
 
 
   
@@ -20,8 +20,8 @@ if(process.env.NODE_ENV !==  "production"){
   
   //Inicializacion
   const app = express();
-  require("./database");
-  require("./config/passport")
+  require("./src/database");
+  require("./src/config/passport")
   
   //Configuraciones
 
@@ -107,9 +107,9 @@ if(process.env.NODE_ENV !==  "production"){
   })
   
   //Rutas
-  app.use(require("./routes/administracion"));
-  app.use(require("./routes/seller"));
-  app.use(require("./routes/client"));
+  app.use(require("./src/routes/administracion"));
+  app.use(require("./src/routes/seller"));
+  app.use(require("./src/routes/client"));
   
   //Archivos estaticos
   
